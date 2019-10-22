@@ -8,12 +8,14 @@ export const Day = (props) => {
     const [price, setPrice] = useState();
     useEffect(() => {
         let date = props.day;
-        let newDate = date.slice(0, -6);
-        setDay(newDate)
-        if (props.price === Infinity) {
-            setPrice(<div className={"orange2"}>no rides</div>)
-        } else {
-            setPrice(<div className={"orange2"}>${props.price}<span className={"raise"}>00</span>+</div>)
+        if (date !== undefined) {
+            let newDate = date.slice(0, -6);
+            setDay(newDate)
+            if (props.price === Infinity) {
+                setPrice(<div className={"orange2"}>no rides</div>)
+            } else {
+                setPrice(<div className={"orange2"}>${props.price}<span className={"raise"}>00</span>+</div>)
+            }
         }
     }, [props.day, props.price])
 

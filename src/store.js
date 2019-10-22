@@ -44,10 +44,12 @@ const reducer = (model, action, params) => {
             let days = [];
             for (let i = 0; i < 28; i++) {
                 let day = params.startDay;
-                days.push(day);
-                let dateObj = new Date(days[i]);
-                days[i] = GetDateFormat2(dateObj);
-                day.setDate(day.getDate() + 1);
+                if (day !== null) {
+                    days.push(day);
+                    let dateObj = new Date(days[i]);
+                    days[i] = GetDateFormat2(dateObj);
+                    day.setDate(day.getDate() + 1);
+                }
             }
             params.days = days;
 
